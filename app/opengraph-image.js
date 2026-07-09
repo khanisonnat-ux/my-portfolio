@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 // Site-wide social preview card. Next applies this to every route's og:image
 // and twitter:image automatically (unless a route defines its own).
 export const runtime = "edge";
-export const alt = "My Portfolio — Creative Work & Projects";
+export const alt = "Khanison Portfolio — UX/UI Designer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -42,24 +42,23 @@ export default function OpengraphImage() {
             ✦
           </div>
           <div style={{ fontSize: "30px", fontWeight: 600, opacity: 0.9 }}>
-            My Portfolio
+            Khanison Portfolio
           </div>
         </div>
 
         {/* Headline */}
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          <div style={{ fontSize: "76px", fontWeight: 800, lineHeight: 1.05 }}>
-            Creative Work
-            <br />& Projects
+          <div style={{ fontSize: "80px", fontWeight: 800, lineHeight: 1.05 }}>
+            UX/UI Designer
           </div>
           <div style={{ fontSize: "32px", opacity: 0.75, maxWidth: "820px" }}>
-            A curated portfolio of video, graphic, and web projects.
+            Portfolio — selected work &amp; case studies.
           </div>
         </div>
 
         {/* Category pills */}
         <div style={{ display: "flex", gap: "16px" }}>
-          {["Video", "Graphic", "Web"].map((label) => (
+          {["UX", "UI", "Web"].map((label) => (
             <div
               key={label}
               style={{
