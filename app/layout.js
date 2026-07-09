@@ -16,12 +16,16 @@ const geistMono = localFont({
 const SITE_NAME = "Khanison Portfolio";
 const SITE_DESC = "UX/UI Designer Portfolio";
 
+// Canonical site URL. Prefer the env var (set on Vercel); fall back to the real
+// production domain so OG tags are never wrong even if the env var is missing.
+// .trim() guards against stray whitespace / hidden characters in the env value.
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://my-portfolio-9sms-sigma.vercel.app"
+).trim();
+
 export const metadata = {
-  // Base URL for resolving OpenGraph/Twitter image + url paths into absolute
-  // URLs. Set NEXT_PUBLIC_SITE_URL to your deployed domain in production.
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
+  // Base URL for resolving OpenGraph/Twitter image + url paths into absolute URLs.
+  metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_NAME,
     template: `%s · ${SITE_NAME}`,
@@ -33,8 +37,7 @@ export const metadata = {
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_DESC,
-    // Resolves against metadataBase → your site's root URL (og:url).
-    url: "/",
+    url: SITE_URL,
     locale: "en_US",
     // og:image is supplied automatically by app/opengraph-image.js.
   },
